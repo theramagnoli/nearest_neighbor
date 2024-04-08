@@ -1,0 +1,19 @@
+{
+  "name": "nna_algorithm",
+  "version": "1.0.0",
+  "description": "Nearest Neighbor Algorithm for TSP",
+  "main": "NnaAlgorithm.ts",
+  "scripts": {
+    "test": "bun test test/main",
+    "format": "prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.12.5",
+    "prettier": "^3.2.5"
+  },
+  "devDependencies": {
+    "bun-types": "^1.1.3"
+  }
+}
