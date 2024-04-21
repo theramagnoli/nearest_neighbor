@@ -1,5 +1,5 @@
 {
-  "name": "nna_algorithm",
+  "name": "optimization_algorithms",
   "version": "1.0.0",
   "description": "Optimization Algorithms",
   "main": "src/TravelingSalesmanProblem.ts",
