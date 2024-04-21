@@ -1,15 +1,16 @@
-type NodeCoordinates = { id: number; x: number; y: number };
-type nnAlgorithmConfig = { improvedStart: boolean };
+import { NodeCoordinates } from './types/NodeCoordinates';
+import { TravelingSalesmanAlgorithm } from './TravelingSalesmanAlgorithm';
 
-export class NnAlgorithm {
-  nodes: NodeCoordinates[];
-  tspTour: NodeCoordinates[];
-  config: nnAlgorithmConfig;
+type NNAConfig = { improvedStart: boolean };
+
+export class NearestNeighborAlgorithm extends TravelingSalesmanAlgorithm {
+  config: NNAConfig;
   private extras = { minArcDistance: undefined };
   constructor(
     nodes: NodeCoordinates[],
-    config: nnAlgorithmConfig = { improvedStart: false },
+    config: NNAConfig = { improvedStart: false },
   ) {
+    super();
     this.nodes = nodes;
     this.config = config;
     this.tspTour = [];
@@ -60,29 +61,5 @@ export class NnAlgorithm {
       }
     }
     return nearestNeighbor;
-  }
-  private getDistanceBetweenNodes(a: NodeCoordinates, b: NodeCoordinates) {
-    return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
-  }
-  public getTourCost() {
-    let cost = 0;
-    for (let i = 0; i < this.tspTour.length - 1; i++) {
-      cost += this.getDistanceBetweenNodes(
-        this.tspTour[i],
-        this.tspTour[i + 1],
-      );
-    }
-    return cost;
-  }
-  public getTourString() {
-    return this.tspTour.map((node) => node.id).join(' -> ');
-  }
-  printSummary() {
-    console.log(`# of nodes: ${this.nodes.length}`);
-    console.log(
-      `Improved start: ${this.config.improvedStart} | Min arc distance: ${this.extras.minArcDistance}`,
-    );
-    console.log(`Tour: ${this.getTourString()}`);
-    console.log(`Cost: ${this.getTourCost()}\n`);
   }
 }

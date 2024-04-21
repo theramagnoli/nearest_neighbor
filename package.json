@@ -1,10 +1,11 @@
 {
   "name": "nna_algorithm",
   "version": "1.0.0",
-  "description": "Nearest Neighbor Algorithm for TSP",
-  "main": "NnaAlgorithm.ts",
+  "description": "Optimization Algorithms",
+  "main": "src/TravelingSalesmanProblem.ts",
   "scripts": {
-    "test": "bun test test/main",
+    "test:nna": "bun test tests/nna.test.ts",
+    "test:cia": "bun test tests/cia.test.ts",
     "format": "prettier --write ."
   },
   "author": "",
